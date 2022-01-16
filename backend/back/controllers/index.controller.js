@@ -6,7 +6,7 @@ const pool = new pg.Pool({
     password: '',
     database: 'prueba'
 })
-
+/*
 const getMembers = async (req, res) => {
     const response = await pool.query('SELECT * FROM miembro;');
     res.end(JSON.stringify(response.rows));
@@ -31,3 +31,4 @@ module.exports = {
     createMember,
     updateMember
 }
+*/

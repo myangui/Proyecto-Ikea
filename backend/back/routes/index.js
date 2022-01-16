@@ -1,9 +1,43 @@
 const { Router } = require('express');
 const router = Router();
-const { getMembers, createMember, updateMember} = require('../controllers/index.controller');
+//const {} = require('../controllers/index.controller');
 
-router.get('/getmembers', getMembers);
-router.post('/addmember', createMember);
-router.put('/updatemember/:cedula', updateMember);
+//Gets
+router.get('/getinfotiendas', getInfoTiendas);
+router.get('/getinfocatalogociudad/:id', getInfoCatalogoCiudad);
+router.get('/getinfoproductos', getInfoProductos);
+router.get('/getinfocategorias', getInfoCategorias);
+router.get('/getinfoofertas', getInfoOfertas);
+router.get('/getinfoeventos', getInfoEventos);
+router.get('/getinfomenu/:id', getInfoMenu);
+router.get('/getinfofacturas', getInfoFacturas);
+router.get('/getinfotienda/:id', getInfoTienda);
+router.get('/getinfoproducto/:id', getInfoProducto);
+router.get('/getproductosrelacionados/:id', getProductosRelacionados);
+router.get('/getinfocategoria/:id', getInfoCategoria);
+router.get('/getsubcategorias/:id', getSubCategorias);
+router.get('/getinfooferta/:id', getInfoOferta);
+router.get('/getinfoevento/:id', getInfoEvento);
+router.get('/getinfoplato/:id', getInfoPlato);
+//Posts
+router.post('/afiliarcliente', AfiliarCliente);
+router.post('/crearfactura', crearFactura);
+router.post('/crearcategoria', crearCategoria);
+router.post('/crearproducto', crearProducto);
+router.post('/crearplato', crearPlato);
+router.post('/crearoferta', crearOferta);
+router.post('/crearevento', crearEvento);
+//Puts
+router.put('/updatecategoria/:id', updateCategoria);
+router.put('/updateproducto/:id', updateProducto);
+router.put('/updateplato/:id', updatePlato);
+router.put('/updateoferta/:id', updateOferta);
+router.put('/updateevento/:id', updateEvento);
+//Deletes
+router.delete('/deletecategoria',deleteCategoria);
+router.delete('/deleteproducto',deleteProducto);
+router.delete('/deleteplato',deletePlato);
+router.delete('/deleteoferta',deleteOferta);
+router.delete('/deleteevento',deleteEvento);
 
 module.exports = router;
