@@ -5,12 +5,13 @@ const router = Router();
 //Gets
 router.get('/getinfotiendas', getInfoTiendas);
 router.get('/getinfocatalogociudad/:id', getInfoCatalogoCiudad);
-router.get('/getinfoproductos', getInfoProductos);
-router.get('/getinfocategorias', getInfoCategorias);
-router.get('/getinfoofertas', getInfoOfertas);
-router.get('/getinfoeventos', getInfoEventos);
+router.get('/getinfoproductos/:id', getInfoProductos);
+router.get('/getinfocategorias/:id', getInfoCategorias);
+router.get('/getinfotodascategorias', getInfoTodasCategorias);
+router.get('/getinfoofertas/:id', getInfoOfertas);
+router.get('/getinfoeventos/:id', getInfoEventos);
 router.get('/getinfomenu/:id', getInfoMenu);
-router.get('/getinfofacturas', getInfoFacturas);
+router.get('/getinfofacturas/:id', getInfoFacturas);
 router.get('/getinfotienda/:id', getInfoTienda);
 router.get('/getinfoproducto/:id', getInfoProducto);
 router.get('/getproductosrelacionados/:id', getProductosRelacionados);
