@@ -4,7 +4,6 @@ const router = Router();
 
 //Gets
 router.get('/getinfotiendas', getInfoTiendas);
-router.get('/getinfocatalogociudad/:id', getInfoCatalogoCiudad);
 router.get('/getinfoproductos/:id', getInfoProductos);
 router.get('/getinfocategorias/:id', getInfoCategorias);
 router.get('/getinfotodascategorias', getInfoTodasCategorias);
