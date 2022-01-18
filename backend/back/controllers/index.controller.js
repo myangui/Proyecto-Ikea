@@ -186,7 +186,7 @@ const updateOferta = async (req, res) => {
     const id_descuento = parseInt(req.params.id_descuento);
     const { porcentaje, fecha_inicio, fecha_fin } = req.body;
 
-    const response =await pool.query('UPDATE AMY_Menu_mes SET porcentaje = $1, fecha_inicio = $2, fecha_fin = $3 WHERE id_descuento = $5', [
+    const response =await pool.query('UPDATE AMY_Descuento SET porcentaje = $1, fecha_inicio = $2, fecha_fin = $3 WHERE id_descuento = $5', [
         porcentaje, fecha_inicio, fecha_fin, id_descuento
     ]);
 };
