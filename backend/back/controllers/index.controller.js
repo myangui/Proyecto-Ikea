@@ -115,7 +115,7 @@ const getCategoria = async (req, res) => {
 const getCatalogo = async (req, res) => {
     const id = parseInt(req.params.id);
     const { id } = req.body;
-    const response = await pool.query('SELECT * FROM AMY_Catalogo INNER JOIN AMY_Region ON AMY_Catalogo.Region_id_region = $1;',[id]);
+    const response = await pool.query('SELECT * FROM AMY_Catalogo INNER JOIN AMY_Region.id_region ON AMY_Catalogo.Region_id_region = $1;',[id]);
     res.end(JSON.stringify(response.rows));
 }
 const getRegion = async (req, res) => {
@@ -124,6 +124,13 @@ const getRegion = async (req, res) => {
     const response = await pool.query('SELECT * FROM AMY_Region WHERE AMY_Region.tipo = "Pais" ;');
     res.end(JSON.stringify(response.rows));
 }
+const getRegionCatalogo = async (req, res) => {
+    const id = parseInt(req.params.id);
+    const { id } = req.body;
+    const response = await pool.query('SELECT * FROM AMY_Region INNER JOIN AMY_Catalogo ON AMY_Region.id_region = AMY_Catalogo.Region_id_region = $1 ;',[id]);
+    res.end(JSON.stringify(response.rows));
+}
+
 
 
 

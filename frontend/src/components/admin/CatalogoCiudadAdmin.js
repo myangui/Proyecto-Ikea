@@ -8,40 +8,50 @@ function CatalogoCiudadAdmin(){
 
     const [items, setItems] = useState([]);
     const id = 0;
-
-    const [fecha_inicial, setFechaIni] = useState('');
-    const [fecha_final, setFechaFin] = useState('');
-    const [Region_id_region, setRegionID] = useState('');
+    const id_region = 0;
 
     const fetchItems = async () => {
-        const data = await fetch(`/getregion`);
+        const data = await fetch(`/getcatalogo/${id}`);
         const items = await data.json();
         setItems(items);
+    }
+
+    const fetchRegion = async () => {
+        const data = await fetch(`/getregioncatalogo/${id_region}`);
+        const itemsR = await data.json();
+        setItems(itemsR);
+        return itemsR.nombre;
     };
 
+    
+
     return(<section>
-        <h2>Editar catalogo</h2>
-        <Form className="create-form" onSubmit={handleSubmit}>
-                <Form.Field>
-                    <label>Fecha Inicial</label>
-                    <input type="date" value={fecha_inicial} onChange={(e) => setFechaIni(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Nivel de Categoría</label>
-                    <input  type="date" value={fecha_final} onChange={(e) => setFechaFin(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Región</label>
-                    <Select className="basic-single" classNamePrefix="select" defaultValue={fk_categoria} onChange={(e) => setFK_Categoria(e.target.value)}>
-                        {
-                            items.map(item => (
-                                <option value={item.id_region}>{item.nombre}</option>
-                              ))
-                        }
-                    </Select>
-                </Form.Field>
-                <Button type='submit'>Modificar</Button>
-            </Form>
+        <div>
+            <Table singleLine>
+                <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell>Fecha Inicial</Table.HeaderCell>
+                        <Table.HeaderCell>Fecha Final</Table.HeaderCell>
+                        <Table.HeaderCell>Pais</Table.HeaderCell>
+                        <Table.HeaderCell> </Table.HeaderCell>
+                        <Table.HeaderCell> </Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
+
+            
+                <Table.Body>
+                {items.map(item => (
+                    <Table.Row>
+                        <Table.Cell>{item.fecha_inicial}</Table.Cell>
+                        <Table.Cell>{item.fecha_final}</Table.Cell>
+                        <Table.Cell>{fetchRegion(item.Region_id_region)}</Table.Cell>
+                        <Link to='/updatecategoria'><Table.Cell><Button onClick={() => setData(item)}>Editar</Button></Table.Cell></Link>
+                        <Table.Cell><Button onClick={() => setData(item)}>Eliminar</Button></Table.Cell>
+                    </Table.Row>
+                    ))}
+                </Table.Body>
+        </Table>
+    </div>
     </section>);
 
 }

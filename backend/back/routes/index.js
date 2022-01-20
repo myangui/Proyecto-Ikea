@@ -22,6 +22,7 @@ router.get('/getinfoplato/:id', getInfoPlato);
 router.get('/getcategoria/:id', getCategoria);
 router.get('/getcatalogo/:id', getCatalogo);
 router.get('/getregion', getRegion);
+router.get('/getregioncatalogo', getRegionCatalogo);
 //Posts
 router.post('/afiliarcliente', AfiliarCliente);
 router.post('/crearfactura', crearFactura);
