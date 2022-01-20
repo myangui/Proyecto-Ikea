@@ -9,6 +9,11 @@ function ListaProductosCliente(){
     const [items, setItems] = useState([]);
     const id = 0;
 
+    const { search } = window.location;
+    const query = new URLSearchParams(search).get('s');
+    const [searchQuery, setSearchQuery] = useState(query || '');
+    const filteredPosts = getSearch(posts, searchQuery);
+
     const fetchItems = async () => {
         const data = await fetch(`/getinfoproductos/${id}`);
         const items = await data.json();
@@ -16,6 +21,14 @@ function ListaProductosCliente(){
     };
 
     return(<section>
+
+            <div class="container">
+              <Buscar
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+            />
+              </div>
+
         {items.map(item =>(
             <section id="new-arrivals" class="new-arrivals">
             <div class="container">
@@ -32,7 +45,7 @@ function ListaProductosCliente(){
                         <div class="new-arrival-cart">
                           <p>
                             <span class="lnr lnr-cart"></span>
-                            <a href="# LINK A PRODUCTO">Más <span>  </span> información</a>
+                            <a href="/getinfoproducto/${item.id_producto}">Más <span>  </span> información</a>
                           </p>
                           <p class="arrival-review pull-right">
                             <span class="lnr lnr-heart"></span>
@@ -40,7 +53,7 @@ function ListaProductosCliente(){
                           </p>
                         </div>
                       </div>
-                      <h4><a href="# LINK A PRODUCTO">{item.nombre}</a></h4>
+                      <h4><a href="/getinfoproducto/${item.id_producto}">{item.nombre}</a></h4>
                       <p class="arrival-product-price">{item.precio}$</p>
                     </div>
                   </div>
