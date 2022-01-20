@@ -34,7 +34,6 @@ function CatalogoCiudadAdmin(){
                         <Table.HeaderCell>Fecha Final</Table.HeaderCell>
                         <Table.HeaderCell>Pais</Table.HeaderCell>
                         <Table.HeaderCell> </Table.HeaderCell>
-                        <Table.HeaderCell> </Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
@@ -45,8 +44,7 @@ function CatalogoCiudadAdmin(){
                         <Table.Cell>{item.fecha_inicial}</Table.Cell>
                         <Table.Cell>{item.fecha_final}</Table.Cell>
                         <Table.Cell>{fetchRegion(item.Region_id_region)}</Table.Cell>
-                        <Link to='/updatecategoria/${item.id_catalogo}'><Table.Cell><Button>Editar</Button></Table.Cell></Link>
-                        <Table.Cell><Button onClick={() => setData(item)}>Eliminar</Button></Table.Cell>
+                        <Link to='/updatecategoria/${item}'><Table.Cell><Button>Editar</Button></Table.Cell></Link>
                     </Table.Row>
                     ))}
                 </Table.Body>

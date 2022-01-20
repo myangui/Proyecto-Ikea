@@ -48,7 +48,7 @@ function EditarListaCategorias(){
                         <Table.Cell>{item.descripcion}</Table.Cell>
                         <Table.Cell>{fetchItems2(item.fk_categoria)}</Table.Cell>
                         <Link to='/updatecategoria/${item.id_categoria}'><Table.Cell><Button>Editar</Button></Table.Cell></Link>
-                        <Table.Cell><Button onClick={() => setData(item)}>Eliminar</Button></Table.Cell>
+                        <Table.Cell><Button onClick={() => '/deletecategoria/${item.id_categoria}'}>Eliminar</Button></Table.Cell>
                     </Table.Row>
                     ))}
                 </Table.Body>

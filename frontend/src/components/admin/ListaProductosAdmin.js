@@ -49,7 +49,7 @@ function ListaProductosAdmin(){
                         <Table.Cell>{item.ancho}x{item.largo}</Table.Cell>
                         <Table.Cell>{item.precio}$</Table.Cell>
                         <Link to='/updateproducto/${item.id_producto}'><Table.Cell><Button>Editar</Button></Table.Cell></Link>
-                        <Table.Cell><Button onClick={() => deleteProducto(item)}>Eliminar</Button></Table.Cell>
+                        <Table.Cell><Button onClick={() => '/deleteproducto/${item.id_producto}'}>Eliminar</Button></Table.Cell>
                     </Table.Row>
                     ))}
                 </Table.Body>

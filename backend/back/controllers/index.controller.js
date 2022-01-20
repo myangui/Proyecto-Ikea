@@ -253,7 +253,60 @@ const updateProducto = async (req, res) => {
 
 
 //Deletes
+const deleteProducto = async (req, res) => {
+    const id_producto = req.params.id_producto;
+   pool.query('DELETE FROM AMY_Producto WHERE AMY_Producto.id_producto = $1',id_producto, (err, result) => {
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result);
+        }
+    })
+}
 
+const deleteCategoria = async (req, res) => {
+    const id_categoria = req.params.id_categoria;
+   pool.query('DELETE FROM AMY_Categoria WHERE AMY_Categoria.id_categoria = $1',id_categoria, (err, result) => {
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result);
+        }
+    })
+}
+
+const deletePlato= async (req, res) => {
+    const id_plato = req.params.id_plato;
+   pool.query('DELETE FROM AMY_Plato WHERE AMY_Plato.id_plato = $1',id_plato, (err, result) => {
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result);
+        }
+    })
+}
+
+const deleteOferta = async (req, res) => {
+    const id_descuento = req.params.id_descuento;
+   pool.query('DELETE FROM AMY_Descuento WHERE AMY_Descuento.id_descuento = $1',id_descuento, (err, result) => {
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result);
+        }
+    })
+}
+
+const deleteEvento = async (req, res) => {
+    const id_evento = req.params.id_evento;
+   pool.query('DELETE FROM AMY_Evento WHERE AMY_Evento.id_evento = $1',id_evento, (err, result) => {
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result);
+        }
+    })
+}
 
 
 
