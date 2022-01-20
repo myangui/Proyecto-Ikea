@@ -19,6 +19,9 @@ router.get('/getsubcategorias/:id', getSubCategorias);
 router.get('/getinfooferta/:id', getInfoOferta);
 router.get('/getinfoevento/:id', getInfoEvento);
 router.get('/getinfoplato/:id', getInfoPlato);
+router.get('/getcategoria/:id', getCategoria);
+router.get('/getcatalogo/:id', getCatalogo);
+router.get('/getregion', getRegion);
 //Posts
 router.post('/afiliarcliente', AfiliarCliente);
 router.post('/crearfactura', crearFactura);

@@ -100,6 +100,31 @@ const getInfoPlato = async (req, res) => {
     const response = await pool.query('SELECT * FROM AMY_Plato WHERE AMY_Plato.id_plato = $1;',[id]);
     res.end(JSON.stringify(response.rows));
 }
+const getInfoSubcategorias = async (req, res) => {
+    const id = parseInt(req.params.id);
+    const { id } = req.body;
+    const response = await pool.query('SELECT * FROM AMY_Categoria WHERE AMY_Categoria.nivel > 1;');
+    res.end(JSON.stringify(response.rows));
+}
+const getCategoria = async (req, res) => {
+    const id = parseInt(req.params.id);
+    const { id } = req.body;
+    const response = await pool.query('SELECT * FROM AMY_Categoria WHERE AMY_Categoria.id_categoria = $1;',[id]);
+    res.end(JSON.stringify(response.rows));
+}
+const getCatalogo = async (req, res) => {
+    const id = parseInt(req.params.id);
+    const { id } = req.body;
+    const response = await pool.query('SELECT * FROM AMY_Catalogo INNER JOIN AMY_Region ON AMY_Catalogo.Region_id_region = $1;',[id]);
+    res.end(JSON.stringify(response.rows));
+}
+const getRegion = async (req, res) => {
+    const id = parseInt(req.params.id);
+    const { id } = req.body;
+    const response = await pool.query('SELECT * FROM AMY_Region WHERE AMY_Region.tipo = "Pais" ;');
+    res.end(JSON.stringify(response.rows));
+}
+
 
 
 //Posts
